@@ -20,8 +20,9 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_BaesModel(self):
         """test save_Basemodel"""
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        base = BaseModel()
+        base.save()
+        self.assertNotEqual(base.created_at, base.updated_at)
 
     def test_doc(self):
         """ Tests doc """
