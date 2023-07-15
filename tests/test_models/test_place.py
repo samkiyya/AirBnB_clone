@@ -6,7 +6,6 @@ import pep8
 from models import place
 from models.base_model import BaseModel
 
-
 class Test_Place(unittest.TestCase):
     """ Tests Place """
 
@@ -15,6 +14,7 @@ class Test_Place(unittest.TestCase):
         pep8style = pep8.StyleGuide(quite=True)
         result = pep8style.check_files(["models/place.py"])
         self.assertEqual(result.total_errors, 0, "Check pep8")
+
 
     def test_Place_dict(self):
         """ Place_dict """
@@ -30,7 +30,6 @@ class Test_Place(unittest.TestCase):
         """ Save_Place """
         self.place.save()
         self.assertNotEqual(self.place.created_at, self.place.updated_at)
-
 
 if __name__ == '__main__':
     unittest.main()
