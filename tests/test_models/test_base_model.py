@@ -33,11 +33,22 @@ class TestBaseModel(unittest.TestCase):
     def test_kwarg(self):
         basemodel = BaseModel(name="base")
         self.assertEqual(type(basemodel).__name__, "BaseModel")
-        self.assertFalse(hasattr(basemodel, "id"))
-        self.assertFalse(hasattr(basemodel, "created_at"))
+        self.assertTrue(hasattr(basemodel, "id"))
+        self.assertTrue(hasattr(basemodel, "created_at"))
         self.assertTrue(hasattr(basemodel, "name"))
-        self.assertFalse(hasattr(basemodel, "updated_at"))
+        self.assertTrue(hasattr(basemodel, "updated_at"))
         self.assertTrue(hasattr(basemodel, "__class__"))
+
+    def test_string_rep(self):
+        """ Test string representation of basemodel """
+        basemodel = BaseModel()
+        self.assertEqual(basemodel.__str__, "[{}] ({}) {}".format("BaseModel", basemodel.id, basemodel.__dict__))
+
+    def test_unique_id(self):
+        """ Test unique ids """
+        bm1 = BaseModel()
+        bm2 = BaseModel()
+        self.assertNotEqual(bm1.id, bm2.id)
 
 
 if __name__ == "__main__":
