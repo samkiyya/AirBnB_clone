@@ -71,8 +71,7 @@ class TestState(unittest.TestCase):
     def test_method_to_dict(self):
         self.new_state.name = "Tunis"
         dict_rep = self.new_state.to_dict()
-        list = ['id', 'created_at', 'updated_at',
-                    'name', '__class__']
+        list = ['id', 'created_at', 'updated_at', 'name', '__class__']
         num = 0
         for att in dict_rep.keys():
             if att in list:
@@ -96,6 +95,7 @@ class TestState(unittest.TestCase):
             os.remove("objects.json")
         except BaseException:
             pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -8,6 +8,7 @@ import datetime
 from models import amenity
 Amenity = amenity.Amenity
 
+
 class Test_Amenity(unittest.TestCase):
     """ Tests amenity """
 
@@ -23,11 +24,12 @@ class Test_Amenity(unittest.TestCase):
         self.assertTrue('created_at' in self.amenity.__dict__)
         self.assertTrue('updated_at' in self.amenity.__dict__)
         self.assertTrue('name' in self.amenity.__dict__)
-   
+
     def test_save_Amenity(self):
         """Amenity save"""
         self.amenity.save()
         self.assertNotEqual(self.amenity.created_at, self.amenity.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
