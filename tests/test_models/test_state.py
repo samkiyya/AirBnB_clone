@@ -69,7 +69,6 @@ class TestState(unittest.TestCase):
         self.assertEqual(expected, list)
 
     def test_method_to_dict(self):
-        """ Test to_dict method """
         self.new_state.name = "Tunis"
         dict_rep = self.new_state.to_dict()
         list = ['id', 'created_at', 'updated_at',
