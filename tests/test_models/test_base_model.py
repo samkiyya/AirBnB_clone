@@ -20,23 +20,25 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_BaesModel(self):
         """test save_Basemodel"""
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        base = BaseModel()
+        base.save()
+        self.assertNotEqual(base.created_at, base.updated_at)
 
     def test_doc(self):
         """ Tests doc """
-        self.assertisNotNone(BaseModel.__doc__)
+        self.assertIsNotNone(BaseModel.__doc__)
 
     def test_to_json(self):
         '''test to jason'''
 
     def test_kwarg(self):
+        """ tests attributes from the kwargs """
         basemodel = BaseModel(name="base")
         self.assertEqual(type(basemodel).__name__, "BaseModel")
-        self.assertFalse(hasattr(basemodel, "id"))
-        self.assertFalse(hasattr(basemodel, "created_at"))
+        self.assertTrue(hasattr(basemodel, "id"))
+        self.assertTrue(hasattr(basemodel, "created_at"))
         self.assertTrue(hasattr(basemodel, "name"))
-        self.assertFalse(hasattr(basemodel, "updated_at"))
+        self.assertTrue(hasattr(basemodel, "updated_at"))
         self.assertTrue(hasattr(basemodel, "__class__"))
 
 

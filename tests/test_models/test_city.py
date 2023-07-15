@@ -32,7 +32,7 @@ class Test_City(unittest.TestCase):
         self.assertNotEqual(self.city.created_at, self.city.updated_at)
 
     def test_inst(self):
-        """ test_inst"""
+        """ test_instances of objects"""
         self.assertIsInstance(self.new_city, City)
 
 
