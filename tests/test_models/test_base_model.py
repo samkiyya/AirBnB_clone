@@ -21,7 +21,9 @@ class TestBaseModel(unittest.TestCase):
     def test_save_BaesModel(self):
         """test save_Basemodel"""
         base = BaseModel()
+        initial_updated_at = base.updated_at
         base.save()
+        now_updated_at = base.updated_at
         self.assertNotEqual(base.created_at, base.updated_at)
 
     def test_doc(self):
