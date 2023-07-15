@@ -23,6 +23,5 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "Check pep8")
 
 
-
 if __name__ == "__main__":
     unittest.main()
