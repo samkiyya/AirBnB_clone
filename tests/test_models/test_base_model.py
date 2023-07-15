@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """test BaseModel"""
 import unittest
-import os
 from models.base_model import BaseModel
 import pep8
 
@@ -20,8 +19,16 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_BaesModel(self):
         """test save_Basemodel"""
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        base = BaseModel()
+        initial_updated_at = base.updated_at
+        base.save()
+        current_updated_at = base.updated_at
+        self.assertNotEqual(initial_updated_at, current_updated_at)
+
+    def test_times(self):
+        """ Test created_at and updated_at times """
+        bm = BaseModel()
+        self.assertNotEqual(bm.created_at, bm.updated_at)
 
     def test_doc(self):
         """ Tests doc """
