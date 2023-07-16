@@ -3,6 +3,7 @@
 Serializes instances to a JSON file and deserializes JSON file to instances
 """
 import json
+from models.base_model import BaseModel
 from datetime import datetime
 from models.user import User
 from models.state import State
@@ -30,36 +31,28 @@ class FileStorage:
         """
         serializes FileStroage.__objects
         """
-        with open(FileStorage.__file_path, 'w+') as f:
-            dictofobjs = {}
-            for key, value in FileStorage.__objects.items():
-                dictofobjs[key] = value.to_dict()
-            json.dump(dictofobjs, f)
+        new_dict = {}
+        for key, value in self.__objects.items():
+            if isinstance(value, BaseModel):
+                new_dict[key] = value.to_dict()
+            else:
+                new_dict[key] = value
+        with open(self.__file_path, 'w+', encoding='utf-8') as f:
+            json.dump(new_dict, f)
 
     def reload(self):
         """
         deserializes instances got from json file
         """
         try:
-            with open(FileStorage.__file_path, 'r') as f:
-                dictofobjs = json.loads(f.read())
-                from models.base_model import BaseModel
-                from models.user import User
-                for key, value in dictofobjs.items():
-                    if value['__class__'] == 'BaseModel':
-                        FileStorage.__objects[key] = BaseModel(**value)
-                    elif value['__class__'] == 'User':
-                        FileStorage.__objects[key] = User(**value)
-                    elif value['__class__'] == 'Place':
-                        FileStorage.__objects[key] = Place(**value)
-                    elif value['__class__'] == 'State':
-                        FileStorage.__objects[key] = State(**value)
-                    elif value['__class__'] == 'City':
-                        FileStorage.__objects[key] = City(**value)
-                    elif value['__class__'] == 'Amenity':
-                        FileStorage.__objects[key] = Amenity(**value)
-                    elif value['__class__'] == 'Review':
-                        FileStorage.__objects[key] = Review(**value)
-
+            with open(self.__file_path, 'r', encoding='utf-8') as f:
+                deserialized = json.load(f)
+                for key, value in deserialized.items():
+                    class_name = value.get('__class__')
+                    if class_name == "BaseModel":
+                        self.__objects[key] = BaseModel(**value)
+                    elif class_name == "User":
+                        from models.user import User  # Avoid circular import
+                        self.__objects[key] = User(**value)
         except FileNotFoundError:
             pass
