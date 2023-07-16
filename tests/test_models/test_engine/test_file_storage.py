@@ -47,18 +47,3 @@ class TestFileStorage(unittest.TestCase):
         storage1.new(base)
         key = type(base).__name__ + '.' + base.id
         self.assertEqual(storage1.all()[key], base)
-
-    """
-    def test_a_all(self):
-        all_objs = storage.all()
-        self.assertDictEqual(storage.all(), {})
-
-    def test_z_all(self):
-        base = BaseModel()
-        base.save()
-        key = 'BaseModel.' + base.id
-        self.assertIsInstance(storage.all(), dict)
-
-    def test_reload(self):
-        self.assertEqual(storage.reload(), None)
-    """
