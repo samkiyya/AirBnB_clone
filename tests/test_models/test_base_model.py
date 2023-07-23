@@ -55,3 +55,11 @@ class TestBaseModel(unittest.TestCase):
         base.save()
         newtime = base.updated_at
         self.assertNotEqual(prevtime, newtime)
+
+    def test_attr_id(self):
+        """
+        tests the unique ids
+        """
+        base_1 = BaseModel()
+        base_2 = BaseModel()
+        self.assertNotEqual(base_1.id, base_2.id)

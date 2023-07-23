@@ -19,11 +19,11 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     classes = ['BaseModel',
-                'User', 
-                'Place', 
-                'State',
-               'City', 
-               'Amenity', 
+               'User',
+               'Place',
+               'State',
+               'City',
+               'Amenity',
                'Review']
     dotcmds = ['.all()', '.count()']
 
@@ -244,7 +244,7 @@ double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -262,7 +262,7 @@ double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -413,7 +413,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -431,7 +431,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -582,7 +582,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -600,7 +600,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -751,7 +751,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -769,7 +769,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -920,7 +920,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -938,7 +938,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -1089,7 +1089,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -1107,7 +1107,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
@@ -1258,7 +1258,7 @@ must be between double quotes **")
                     # strip off whitespaces around arguments
                     i = 0
                     while (i < len(args_list)):
-                        while(args_list[i][0] == " "):
+                        while (args_list[i][0] == " "):
                             args_list[i] = args_list[i][1:]
                         i += 1
 
@@ -1276,7 +1276,7 @@ must be between double quotes **")
                             keyval = s.split(':')
                             key = keyval[0]
                             value = keyval[1]
-                            while(value[0] == " "):
+                            while (value[0] == " "):
                                 value = value[1:]
                             if key in oob:
                                 print('** attribute can\'t be updated **')
